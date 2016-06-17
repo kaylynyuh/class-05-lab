@@ -88,14 +88,16 @@ Note: You are not allowed to use the arithmetic operators + and * in this functi
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-
-// // function multiplyArray(testArray) {
-//
-// };
+testArray = [2, 3, 4];
+function multiplyArray(testArray) {
+  var thirdMultiply = multiply(multiply(testArray[0], testArray[1])[0], testArray[2])[0];
+  var message = 'The numbers ' + testArray + ' have a product of ' + thirdMultiply + '.';
+  return [thirdMultiply, message];
+}
 
 // Here is the test for multiplyArray(); uncomment it to run it
 
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle, synchronize the code between both GitHubs and both laptops, and swap Driver/Navigator roles. Submit the link to the repo via Canvas.
 
