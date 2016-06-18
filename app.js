@@ -68,15 +68,28 @@ Note: You are not allowed to use the arithmetic operators + and * in this functi
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-testArray = [2,3,4];
+/*testArray = [2,3,4];
 function sumArray(testArray){
   var thirdSum = sum(sum(testArray[0], testArray[1])[0], testArray[2])[0];
   var message = testArray + ' was passed in as an array of numbers, and ' + thirdSum + ' is their sum.';
   return [thirdSum, message];
+}*/
+testArray = [2,3,4];
+function sumArray(testArray){
+  var counter = 0;
+  var outputString = '';
+  for(var i = 0; i < testArray.length; i++) {
+    counter = counter + testArray[i];
+    outputString = outputString + testArray[i];
+    if(i < testArray.length - 1){
+      outputString += ',';
+    }
+  }
+  outputString = outputString + ' was passed in as an array of numbers, and ' + counter + ' is their sum.';
+  console.log(outputString);
 }
 // Here is the test for sumArray(); uncomment it to run it
-
-testSumArray(testArray);
+sumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle, synchronize the code between both GitHubs and both laptops, and swap Driver/Navigator roles. Don't forget to create a new branch for your work on the next question!
 
