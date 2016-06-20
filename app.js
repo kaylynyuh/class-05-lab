@@ -16,8 +16,6 @@ function sum(a,b){
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
 
-// Once you get the test passing, do an a-c-p cycle, synchronize the code between both GitHubs and both laptops, and swap Driver/Navigator roles. Don't forget to create a new branch for your work on the next question!
-
 /////////////////////////////////////
 /* Problem 2
 Write a function called multiply() that takes in two numbers as arguments and returns an array where the first element is the product of those numbers, and the second element is a string that EXACTLY follows this example and uses the values that were input into the function:
@@ -31,12 +29,7 @@ function multiply(a,b){
   return [result, message];
 }
 
-testMultiply(5, 9);
-
-// Here is the test for multiply(); uncomment it to run it
-// testMultiply(4,7);
-
-// Once you get the test passing, do an a-c-p cycle, synchronize the code between both GitHubs and both laptops, and swap Driver/Navigator roles. Don't forget to create a new branch for your work on the next question!
+testMultiply(4, 7);
 
 /////////////////////////////////////
 /* Problem 3
@@ -54,11 +47,19 @@ function sumAndMultiply(a,b,c){
   var message2 = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + secondMultiply + '.';
   return [secondSum, secondMultiply, message1, message2];
 }
+//the long way
+/*function sumAndMultiply(a, b, c){
+  var firstSum = sum(a, b)[0];
+  var secondSum = sum(firstSum, c)[0];
+  var firstMultiply = multiply(a, b)[0];
+  var secondMultiply = multiply(firstMultiply, c)[0];
+  var message1 = a + ' and ' + b + ' and ' + c + ' sum to ' + secondSum + '.';
+  var message2 = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + secondMultiply + '.';
+  return [secondSum, secondMultiply, message1, message2];
+}*/
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
-
-// Once you get the test passing, do an a-c-p cycle, synchronize the code between both GitHubs and both laptops, and swap Driver/Navigator roles. don't forget to create a new branch for your work on the next question!
 
 /////////////////////////////////////
 /* Problem 4
@@ -67,31 +68,30 @@ Write a function called sumArray() that takes in an array of numbers as its argu
 Note: You are not allowed to use the arithmetic operators + and * in this function. Instead, you must use your existing sum() and multiply() functions to do the calculations.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
-// Write your code here
 /*testArray = [2,3,4];
 function sumArray(testArray){
   var thirdSum = sum(sum(testArray[0], testArray[1])[0], testArray[2])[0];
   var message = testArray + ' was passed in as an array of numbers, and ' + thirdSum + ' is their sum.';
   return [thirdSum, message];
 }*/
+
+//this code accounts for array of any length
 testArray = [2,3,4];
 function sumArray(testArray){
-  var counter = 0;
+  var currentSum = 0;
   var outputString = '';
   for(var i = 0; i < testArray.length; i++) {
-    counter = counter + testArray[i];
+    currentSum = currentSum + testArray[i];
     outputString = outputString + testArray[i];
     if(i < testArray.length - 1){
       outputString += ',';
     }
   }
-  outputString = outputString + ' was passed in as an array of numbers, and ' + counter + ' is their sum.';
+  var message = outputString + ' was passed in as an array of numbers, and ' + currentSum + ' is their sum.';
   console.log(outputString);
 }
 // Here is the test for sumArray(); uncomment it to run it
 sumArray(testArray);
-
-// Once you get the test passing, do an a-c-p cycle, synchronize the code between both GitHubs and both laptops, and swap Driver/Navigator roles. Don't forget to create a new branch for your work on the next question!
 
 /////////////////////////////////////
 /* Problem 5
@@ -99,20 +99,31 @@ Write a function called multiplyArray() that takes an array of numbers as its ar
 "The numbers 2,3,4 have a product of 24."
 Note: You are not allowed to use the arithmetic operators + and * in this function. Instead, you must use your existing sum() and multiply() functions to do the calculations.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
-
-// Write your code here
+/*
 testArray = [2, 3, 4];
 function multiplyArray(testArray) {
   var thirdMultiply = multiply(multiply(testArray[0], testArray[1])[0], testArray[2])[0];
   var message = 'The numbers ' + testArray + ' have a product of ' + thirdMultiply + '.';
   return [thirdMultiply, message];
+}*/
+
+//this code also acccounts for an array of any length
+testArray = [2,3,4];
+function multiplyArray(testArray){
+  var currentProduct = 1;
+  var outputString = '';
+  for(var i = 0; i < testArray.length; i++){
+    currentProduct = currentProduct * testArray[i];
+    outputString = outputString + testArray[i];
+    if (i < testArray - 1) {
+      outputString = outputString + '';
+    }
+  }
+  var message = 'The numbers ' + testArray + ' have a product of ' + currentProduct + '.';
+  console.log(message);
 }
-
 // Here is the test for multiplyArray(); uncomment it to run it
-
-testMultiplyArray(testArray);
-
-// Once you get the test passing, do an a-c-p cycle, synchronize the code between both GitHubs and both laptops, and swap Driver/Navigator roles. Submit the link to the repo via Canvas.
+multiplyArray(testArray);
 
 /////////////////////////////////////
 /////////////////////////////////////
@@ -162,5 +173,17 @@ function testMultiplyArray() {
     console.log('%c TEST FOR multiplyArray() PASSES', 'color: green');
   } else {
     console.log('%c TEST FOR multiplyArray() FAILS', 'color: red');
+  }
+}
+
+for(var i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log('ShitBallz');
+  } else if (i % 3 === 0) {
+    console.log('Shit');
+  } else if ( i % 5 === 0) {
+    console.log('Ballz');
+  } else {
+    console.log(i);
   }
 }
