@@ -81,14 +81,14 @@ function sumArray(testArray){
   var currentSum = 0;
   var outputString = '';
   for(var i = 0; i < testArray.length; i++) {
-    currentSum = currentSum + testArray[i];
-    outputString = outputString + testArray[i];
+    currentSum += testArray[i];
+    outputString += testArray[i];
     if(i < testArray.length - 1){
       outputString += ',';
     }
   }
   var message = outputString + ' was passed in as an array of numbers, and ' + currentSum + ' is their sum.';
-  console.log(outputString);
+  console.log(message);
 }
 // Here is the test for sumArray(); uncomment it to run it
 sumArray(testArray);
@@ -113,8 +113,8 @@ function multiplyArray(testArray){
   var currentProduct = 1;
   var outputString = '';
   for(var i = 0; i < testArray.length; i++){
-    currentProduct = currentProduct * testArray[i];
-    outputString = outputString + testArray[i];
+    currentProduct *= testArray[i];
+    outputString += testArray[i];
     if (i < testArray - 1) {
       outputString = outputString + '';
     }
@@ -173,17 +173,5 @@ function testMultiplyArray() {
     console.log('%c TEST FOR multiplyArray() PASSES', 'color: green');
   } else {
     console.log('%c TEST FOR multiplyArray() FAILS', 'color: red');
-  }
-}
-
-for(var i = 1; i <= 100; i++) {
-  if (i % 3 === 0 && i % 5 === 0) {
-    console.log('ShitBallz');
-  } else if (i % 3 === 0) {
-    console.log('Shit');
-  } else if ( i % 5 === 0) {
-    console.log('Ballz');
-  } else {
-    console.log(i);
   }
 }
